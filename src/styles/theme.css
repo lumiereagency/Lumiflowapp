@@ -1,0 +1,309 @@
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════
+   LUMIFLOW DESIGN SYSTEM — Tokens & Theme
+   Prepared for FlutterFlow conversion
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Brand Colors ── */
+  --lumi-primary: #7B61FF;
+  --lumi-primary-hover: #6B4FEF;
+  --lumi-primary-light: #7B61FF1A;
+  --lumi-secondary: #B14EFF;
+  --lumi-gradient-start: #7B61FF;
+  --lumi-gradient-end: #B14EFF;
+  --lumi-gradient: linear-gradient(135deg, #7B61FF 0%, #B14EFF 100%);
+
+  /* ── Semantic Colors ── */
+  --lumi-success: #10b981;
+  --lumi-success-light: #10b9811A;
+  --lumi-warning: #f59e0b;
+  --lumi-warning-light: #f59e0b1A;
+  --lumi-error: #ef4444;
+  --lumi-error-light: #ef44441A;
+  --lumi-info: #3b82f6;
+  --lumi-info-light: #3b82f61A;
+
+  /* ── Spacing Scale (4px base) ── */
+  --lumi-space-0: 0px;
+  --lumi-space-1: 4px;
+  --lumi-space-2: 8px;
+  --lumi-space-3: 12px;
+  --lumi-space-4: 16px;
+  --lumi-space-5: 20px;
+  --lumi-space-6: 24px;
+  --lumi-space-8: 32px;
+  --lumi-space-10: 40px;
+  --lumi-space-12: 48px;
+  --lumi-space-16: 64px;
+
+  /* ── Border Radius ── */
+  --lumi-radius-sm: 6px;
+  --lumi-radius-md: 8px;
+  --lumi-radius-lg: 12px;
+  --lumi-radius-xl: 16px;
+  --lumi-radius-2xl: 20px;
+  --lumi-radius-full: 9999px;
+
+  /* ── Typography Scale ── */
+  --lumi-text-xs: 11px;
+  --lumi-text-sm: 13px;
+  --lumi-text-base: 14px;
+  --lumi-text-md: 15px;
+  --lumi-text-lg: 18px;
+  --lumi-text-xl: 22px;
+  --lumi-text-2xl: 28px;
+  --lumi-text-3xl: 36px;
+
+  /* ── Font Weights ── */
+  --lumi-font-normal: 400;
+  --lumi-font-medium: 500;
+  --lumi-font-semibold: 600;
+  --lumi-font-bold: 700;
+
+  /* ── Line Heights ── */
+  --lumi-leading-tight: 1.25;
+  --lumi-leading-normal: 1.5;
+  --lumi-leading-relaxed: 1.625;
+
+  /* ── Shadows ── */
+  --lumi-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --lumi-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --lumi-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --lumi-shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.16);
+  --lumi-shadow-purple: 0 8px 24px rgba(123, 97, 255, 0.25);
+  --lumi-shadow-purple-lg: 0 16px 40px rgba(123, 97, 255, 0.35);
+
+  /* ── Glass Effects ── */
+  --lumi-glass-bg: rgba(255, 255, 255, 0.7);
+  --lumi-glass-border: rgba(255, 255, 255, 0.2);
+  --lumi-glass-blur: 16px;
+
+  /* ── Transitions ── */
+  --lumi-transition-fast: 150ms ease;
+  --lumi-transition-normal: 250ms ease;
+  --lumi-transition-slow: 350ms ease;
+
+  /* ── Z-index Scale ── */
+  --lumi-z-dropdown: 50;
+  --lumi-z-sticky: 60;
+  --lumi-z-overlay: 70;
+  --lumi-z-modal: 80;
+  --lumi-z-popover: 90;
+  --lumi-z-toast: 100;
+
+  /* ── Component Sizes ── */
+  --lumi-navbar-h: 56px;
+  --lumi-sidebar-w: 260px;
+  --lumi-sidebar-collapsed: 72px;
+  --lumi-bottomnav-h: 64px;
+  --lumi-btn-h-sm: 32px;
+  --lumi-btn-h-md: 36px;
+  --lumi-btn-h-lg: 44px;
+  --lumi-input-h: 40px;
+
+  /* ── Base Theme Tokens (Light) ── */
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #7B61FF;
+  --primary-foreground: #ffffff;
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: transparent;
+  --input-background: #f5f5f7;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #7B61FF;
+  --chart-1: #7B61FF;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #3b82f6;
+  --chart-5: #ec4899;
+  --radius: 0.75rem;
+  --sidebar: #fafafa;
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #7B61FF;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f0ff;
+  --sidebar-accent-foreground: #7B61FF;
+  --sidebar-border: rgba(0, 0, 0, 0.06);
+  --sidebar-ring: #7B61FF;
+}
+
+.dark {
+  --lumi-glass-bg: rgba(20, 20, 25, 0.7);
+  --lumi-glass-border: rgba(255, 255, 255, 0.06);
+  --lumi-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --lumi-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --lumi-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --lumi-shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+  --background: #0c0c10;
+  --foreground: #e8e8ed;
+  --card: #141418;
+  --card-foreground: #e8e8ed;
+  --popover: #141418;
+  --popover-foreground: #e8e8ed;
+  --primary: #7B61FF;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e26;
+  --secondary-foreground: #e8e8ed;
+  --muted: #1e1e26;
+  --muted-foreground: #8888a0;
+  --accent: #1e1e26;
+  --accent-foreground: #e8e8ed;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.06);
+  --input: rgba(255, 255, 255, 0.06);
+  --input-background: #1a1a22;
+  --switch-background: #2a2a36;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #7B61FF;
+  --chart-1: #7B61FF;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #3b82f6;
+  --chart-5: #ec4899;
+  --sidebar: #101014;
+  --sidebar-foreground: #e8e8ed;
+  --sidebar-primary: #7B61FF;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(123, 97, 255, 0.08);
+  --sidebar-accent-foreground: #7B61FF;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: #7B61FF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-size: var(--font-size);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1 {
+    font-size: var(--lumi-text-2xl);
+    font-weight: var(--lumi-font-bold);
+    line-height: var(--lumi-leading-tight);
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: var(--lumi-text-xl);
+    font-weight: var(--lumi-font-semibold);
+    line-height: var(--lumi-leading-tight);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: var(--lumi-text-lg);
+    font-weight: var(--lumi-font-semibold);
+    line-height: var(--lumi-leading-normal);
+  }
+
+  h4 {
+    font-size: var(--lumi-text-base);
+    font-weight: var(--lumi-font-medium);
+    line-height: var(--lumi-leading-normal);
+  }
+
+  label {
+    font-size: var(--lumi-text-sm);
+    font-weight: var(--lumi-font-medium);
+    line-height: var(--lumi-leading-normal);
+  }
+
+  button {
+    font-size: var(--lumi-text-sm);
+    font-weight: var(--lumi-font-medium);
+    line-height: var(--lumi-leading-normal);
+  }
+
+  input {
+    font-size: var(--lumi-text-base);
+    font-weight: var(--lumi-font-normal);
+    line-height: var(--lumi-leading-normal);
+  }
+
+  /* ── Scrollbar Styling ── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+}

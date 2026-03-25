@@ -1,0 +1,504 @@
+You are a Senior Product Designer, UX Architect, SaaS Product Engineer, and Cross-Platform UX Specialist.
+
+Analyze the current Figma project for the platform Lumiflow and transform it into a production-ready SaaS platform design optimized for FlutterFlow export.
+
+The goal is to refine the current interface, improve UX, build a scalable design system, and ensure the entire platform becomes fully interactive and clickable before development begins.
+
+Lumiflow is a next-generation productivity and workflow intelligence platform that combines:
+
+• Visual Mind Mapping
+• Task Management (Kanban style)
+• AI-assisted workflows
+• Internal and external approval systems
+• Calendar and task scheduling
+• Smart notifications and alarms
+
+The platform should feel like an evolution of Trello, Notion, Miro, and ClickUp, but with a stronger focus on:
+
+• visual thinking
+• intelligent workflows
+• automation
+• approvals
+• project clarity
+
+PRIMARY GOAL
+
+Transform the Lumiflow interface into a complete, polished, production-ready SaaS platform where:
+
+• every button leads to a function
+• every card opens detailed views
+• every action triggers a workflow
+• navigation is intuitive
+• components are reusable
+
+The prototype must feel fully functional before exporting to FlutterFlow.
+
+All flows must be clickable and logical.
+
+LANGUAGE
+
+All interface text must be in:
+
+Portuguese (Brazil)
+
+However, structure the system with future multilingual support:
+
+• English
+• Spanish
+
+Text must support localization layers.
+
+TARGET PLATFORMS
+
+Lumiflow must support:
+
+1️⃣ Desktop Web Application (Primary)
+2️⃣ Mobile App (iOS and Android)
+
+The interface must feel fluid and consistent across both environments.
+
+Desktop focus
+
+• productivity workflows
+• project visualization
+• team collaboration
+
+Mobile focus
+
+• quick task updates
+• notifications
+• approvals
+• daily workflow management
+
+Mobile must support one-hand usability.
+
+RESPONSIVE DESIGN SYSTEM
+
+Create layouts for:
+
+Desktop
+Tablet
+Mobile
+
+Components must adapt dynamically between screen sizes.
+
+Example:
+
+Desktop → sidebar navigation
+Mobile → bottom navigation
+
+DESIGN STYLE
+
+Lumiflow must feel:
+
+• futuristic
+• premium
+• intelligent
+• fluid
+• visually powerful
+
+Inspired by:
+
+• Linear
+• Notion
+• Trello
+• Figma
+• Apple productivity apps
+
+The UI should communicate speed and intelligence.
+
+COLOR SYSTEM
+
+Primary identity:
+
+Purple Gradient System
+
+Example direction:
+
+Primary Gradient
+Deep Purple → Neon Violet
+
+Secondary colors:
+
+Dark graphite
+Soft lavender
+
+Accent colors:
+
+Electric blue → AI features
+Neon green → approvals and completion
+Orange → alerts and deadlines
+
+Support both:
+
+Light mode
+Dark mode
+
+The purple gradient should be the signature element of Lumiflow.
+
+BRAND INTEGRATION
+
+A Lumiflow logo will be attached.
+
+Use it as reference for:
+
+• color harmony
+• visual tone
+• iconography style
+• loading screens
+• navigation header
+
+Integrate the logo into:
+
+Login screen
+Sidebar
+Dashboard header
+Loading animation
+
+DESIGN SYSTEM CREATION
+
+Create a complete scalable design system.
+
+Components must include:
+
+Typography hierarchy
+Buttons
+Cards
+Mind map nodes
+Kanban cards
+Approval cards
+Task blocks
+Comment threads
+AI interaction panels
+Notifications
+Calendar widgets
+Charts
+Progress indicators
+Dropdown menus
+Search fields
+Side panels
+Modal windows
+
+All components must use:
+
+Auto Layout
+
+Spacing must follow:
+
+8pt grid system
+
+Components must be fully reusable.
+
+CORE PLATFORM STRUCTURE
+
+Lumiflow is built around a Visual Workflow Engine.
+
+Users can start with:
+
+• an idea
+• a mind map
+• a task list
+
+And transform them into structured workflows.
+
+Flow example:
+
+Idea → Mind Map Node → Task → Workflow → Approval → Completed
+
+MAIN SCREENS
+
+Design and refine the following screens:
+
+Login / Sign Up
+Workspace selection
+Main dashboard
+Mind map editor
+Kanban board
+Task detail view
+AI assistant panel
+Approval system
+Activity history
+Notifications center
+Calendar & schedule
+Analytics dashboard
+Team management
+Settings
+External client approval page
+
+Also create:
+
+Mobile versions of each screen.
+
+LOGIN EXPERIENCE
+
+Create a premium login interface.
+
+Options:
+
+Login with Google
+Login with Apple
+Email login
+
+Add smooth loading animations.
+
+MAIN DASHBOARD
+
+The dashboard must show:
+
+Active projects
+Pending approvals
+Recent tasks
+Team activity
+Upcoming deadlines
+AI workflow suggestions
+
+Quick actions:
+
+Create project
+Create board
+Create mind map
+Create task
+
+MIND MAP SYSTEM
+
+One of Lumiflow’s core features.
+
+Users can visually organize ideas.
+
+Nodes must allow:
+
+Expand
+Collapse
+Drag
+Connect
+Convert to tasks
+
+Connections must feel smooth and animated.
+
+Users can convert nodes into:
+
+Tasks
+Boards
+Documents
+Workflow steps
+
+ADVANCED KANBAN SYSTEM
+
+Lumiflow must include a powerful Kanban system.
+
+Columns example:
+
+To Do
+In Progress
+Review
+Approval
+Completed
+
+Cards support:
+
+Checklists
+Attachments
+Comments
+Approvals
+Deadlines
+AI suggestions
+
+Drag-and-drop must be fluid.
+
+AI ASSISTANT
+
+Lumiflow must include an integrated AI workflow assistant.
+
+Functions include:
+
+Generate project tasks
+Break ideas into steps
+Create workflows automatically
+Summarize discussions
+Suggest improvements
+
+Design a floating AI assistant panel.
+
+Include quick commands like:
+
+"Transformar esse mapa mental em tarefas"
+
+TASK DETAIL VIEW
+
+Clicking a task opens a side panel.
+
+Display:
+
+Description
+Checklist
+Attachments
+Comments
+Approval requests
+AI insights
+Task history
+
+APPROVAL SYSTEM
+
+Lumiflow introduces a powerful approval system.
+
+Types:
+
+Internal approval
+Client approval
+
+Approval cards must show:
+
+Status
+Reviewer
+Deadline
+Comments
+
+External users must approve without needing a full account.
+
+Create a secure approval page.
+
+GOOGLE CALENDAR INTEGRATION
+
+Integrate Lumiflow with Google Calendar.
+
+Features:
+
+Sync task deadlines
+Create calendar events
+Import meetings into projects
+Send reminders
+
+Tasks can appear in:
+
+Daily schedule
+Weekly planning
+
+Design a calendar dashboard inside Lumiflow.
+
+SMART TASK ALARM SYSTEM
+
+Create a feature called:
+
+“Despertador de Tarefas”
+
+Users receive reminders for:
+
+Deadlines
+Approvals
+Meetings
+Project milestones
+
+Alerts include:
+
+Push notifications
+Mobile alerts
+Calendar reminders
+
+Users can set:
+
+Custom alarms
+Daily reminders
+Priority alerts
+
+MOBILE EXPERIENCE
+
+The mobile version must prioritize:
+
+Quick actions
+Approvals
+Notifications
+Task updates
+
+Navigation example:
+
+Home
+Projects
+Tasks
+Calendar
+Profile
+
+Use bottom navigation for mobile.
+
+NOTIFICATION CENTER
+
+Display updates for:
+
+Approvals
+Mentions
+Comments
+Deadlines
+AI suggestions
+
+Include filters and priority levels.
+
+ANALYTICS DASHBOARD
+
+Show productivity insights:
+
+Tasks completed
+Project progress
+Approval speed
+Team productivity
+Workflow bottlenecks
+
+Use clean visual charts.
+
+TEAM MANAGEMENT
+
+Admins can:
+
+Invite members
+Assign roles
+Manage permissions
+
+Roles example:
+
+Admin
+Manager
+Collaborator
+Client reviewer
+
+MICRO-INTERACTIONS
+
+Add subtle motion:
+
+Node expansion
+Card hover
+Task drag animation
+Approval confirmation
+AI response animation
+
+Everything must feel smooth and responsive.
+
+FLUTTERFLOW OPTIMIZATION
+
+Ensure the interface structure is fully compatible with FlutterFlow export.
+
+Requirements:
+
+Reusable components
+Consistent layer naming
+Vector icons
+Logical hierarchy
+Organized frames
+
+Every component must be easy for developers to rebuild.
+
+FINAL GOAL
+
+Design Lumiflow as a next-generation intelligent workflow platform.
+
+The experience should feel:
+
+• smarter than Trello
+• more visual than Miro
+• more structured than Notion
+• more intelligent through AI
+
+Lumiflow must help teams:
+
+Think visually
+Organize work
+Automate processes
+Approve projects faster
+Stay productive anywhere (web or mobile).
