@@ -17,12 +17,14 @@ import { DashboardHome } from "./components/DashboardHome";
 import { LoginPage } from "./components/LoginPage";
 import { OnboardingFlow } from "./components/OnboardingFlow";
 import { UpgradeModal } from "./components/UpgradeModal";
-import { TemplateLibrary } from "./components/TemplateLibrary";
 import { BillingPage } from "./components/BillingPage";
 import { InviteTeamModal } from "./components/InviteTeamModal";
 import { ShareProjectModal } from "./components/ShareProjectModal";
-import { CommunityHub } from "./components/CommunityHub";
 import { ReferralProgram } from "./components/ReferralProgram";
+import { SocialMediaScheduler } from "./components/SocialMediaScheduler";
+import { AdminDashboard } from "./components/AdminDashboard";
+import { AccessManagement } from "./components/AccessManagement";
+import { WorkspaceProvider, type UserRole } from "./components/workspace/WorkspaceContext";
 import { GrowthAnalytics } from "./components/GrowthAnalytics";
 import { ProjectsDashboard } from "./components/ProjectsDashboard";
 import { AnalyticsDashboard } from "./components/AnalyticsDashboard";
@@ -48,6 +50,7 @@ type View = "dashboard" | "pricing" | "checkout" | "success" | "mindmap" | "bill
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState<UserRole>("member");
   const [isOnboarded, setIsOnboarded] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [activeTab, setActiveTab] = useState<"mindmaps" | "workflow">("mindmaps");
@@ -107,9 +110,10 @@ export default function App() {
     setAiAssistantOpen(true);
   }, []);
 
-  const handleLogin = () => {
+  const handleLogin = (role: UserRole) => {
+    setUserRole(role);
     setIsLoggedIn(true);
-    toast.success("Login realizado com sucesso!");
+    toast.success(role === "admin" ? "Bem-vinda, Gerente! Acesso administrativo ativo." : "Login realizado com sucesso!");
   };
 
   const handleOnboardingComplete = () => {
@@ -190,11 +194,12 @@ export default function App() {
   // Breadcrumbs configuration
   const sectionLabels: Record<string, string> = {
     projects: "Projetos",
-    templates: "Templates",
+    scheduler: "Agendador Social",
+    "admin-metrics": "Painel do Gerente",
+    access: "Gestão de Acessos",
     calendar: "Calendário",
     analytics: "Análises",
     settings: "Configurações",
-    community: "Comunidade",
     referral: "Indicações",
     growth: "Crescimento",
     team: "Equipe",
@@ -265,10 +270,27 @@ export default function App() {
           </motion.div>
         );
 
-      case "templates":
+      case "scheduler":
         return (
-          <motion.div key="templates" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
-            <TemplateLibrary onNavigate={handleSectionChange} />
+          <motion.div key="scheduler" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
+            <SocialMediaScheduler />
+          </motion.div>
+        );
+
+      case "admin-metrics":
+        // Seção exclusiva da gerência
+        if (userRole !== "admin") return null;
+        return (
+          <motion.div key="admin-metrics" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
+            <AdminDashboard onNavigate={handleSectionChange} />
+          </motion.div>
+        );
+
+      case "access":
+        if (userRole !== "admin") return null;
+        return (
+          <motion.div key="access" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
+            <AccessManagement onNavigate={handleSectionChange} />
           </motion.div>
         );
 
@@ -297,13 +319,6 @@ export default function App() {
         return (
           <motion.div key="growth" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
             <GrowthAnalytics />
-          </motion.div>
-        );
-
-      case "community":
-        return (
-          <motion.div key="community" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
-            <CommunityHub onNavigate={handleSectionChange} />
           </motion.div>
         );
 
@@ -396,7 +411,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <WorkspaceProvider role={userRole}>
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-purple-50/30 dark:to-purple-950/10">
         {/* Sidebar - hidden on mobile */}
         <div className="hidden lg:block">
@@ -405,6 +420,7 @@ export default function App() {
             onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
             activeSection={activeSection === "content" ? activeTab : activeSection}
             onSectionChange={handleSectionChange}
+            role={userRole}
           />
         </div>
 
@@ -520,6 +536,6 @@ export default function App() {
           },
         }}
       />
-    </>
+    </WorkspaceProvider>
   );
 }

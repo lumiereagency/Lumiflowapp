@@ -6,14 +6,11 @@ import {
   BarChart3,
   Users,
   Settings,
-  Bell,
   Search,
   ChevronLeft,
   ChevronRight,
   Sparkles,
   FolderKanban,
-  LayoutTemplate,
-  Globe,
   Gift,
   TrendingUp,
   Inbox,
@@ -25,6 +22,9 @@ import {
   Trophy,
   ShoppingBag,
   Share2,
+  Send,
+  ShieldCheck,
+  UserCog,
 } from "lucide-react";
 import logoImg from "figma:asset/941444256f7c55985c72f1ccbbb282a1128e3849.png";
 import { motion, AnimatePresence } from "motion/react";
@@ -34,6 +34,7 @@ interface SidebarProps {
   onToggleCollapse: () => void;
   activeSection: string;
   onSectionChange: (section: string) => void;
+  role: "admin" | "member";
 }
 
 interface NavGroup {
@@ -48,7 +49,7 @@ interface NavItem {
   badge?: number;
 }
 
-const navGroups: NavGroup[] = [
+const baseNavGroups: NavGroup[] = [
   {
     label: "Workspace",
     items: [
@@ -62,9 +63,9 @@ const navGroups: NavGroup[] = [
   {
     label: "Ferramentas",
     items: [
+      { id: "scheduler", label: "Agendador Social", icon: Send },
       { id: "mindmaps", label: "Mapas Mentais", icon: Brain },
       { id: "workflow", label: "Fluxo de Trabalho", icon: GitBranch },
-      { id: "templates", label: "Templates", icon: LayoutTemplate },
       { id: "automations", label: "Automações", icon: Zap },
     ],
   },
@@ -79,13 +80,21 @@ const navGroups: NavGroup[] = [
   {
     label: "Comunidade",
     items: [
-      { id: "community", label: "Hub Comunitário", icon: Globe },
       { id: "rankings", label: "Rankings", icon: Trophy },
       { id: "rewards", label: "Recompensas", icon: Gift },
       { id: "referral", label: "Indicações", icon: Share2 },
     ],
   },
 ];
+
+// Grupo exclusivo da gerência (aparece só quando o login é de Admin)
+const adminNavGroup: NavGroup = {
+  label: "Gerência",
+  items: [
+    { id: "admin-metrics", label: "Painel do Gerente", icon: ShieldCheck },
+    { id: "access", label: "Gestão de Acessos", icon: UserCog },
+  ],
+};
 
 const bottomNavItems: NavItem[] = [
   { id: "store", label: "Lumiflow Store", icon: ShoppingBag },
@@ -100,7 +109,9 @@ export function Sidebar({
   onToggleCollapse,
   activeSection,
   onSectionChange,
+  role,
 }: SidebarProps) {
+  const navGroups = role === "admin" ? [...baseNavGroups, adminNavGroup] : baseNavGroups;
   return (
     <motion.aside
       animate={{ width: collapsed ? 72 : 260 }}

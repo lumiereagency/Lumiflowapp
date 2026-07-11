@@ -1,11 +1,16 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, ArrowRight, ShieldCheck, Users } from "lucide-react";
 import logoImg from "figma:asset/941444256f7c55985c72f1ccbbb282a1128e3849.png";
 
+export type UserRole = "admin" | "member";
+
 interface LoginPageProps {
-  onLogin: () => void;
+  onLogin: (role: UserRole) => void;
 }
+
+// E-mails de gerentes (acesso administrativo). Em produção isso viria do backend.
+const ADMIN_EMAILS = ["marina.gerente@gmail.com", "admin@lumiflow.com"];
 
 export function LoginPage({ onLogin }: LoginPageProps) {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -14,9 +19,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   const [password, setPassword] = useState("");
   const [logoAnimDone, setLogoAnimDone] = useState(false);
 
+  const roleFromEmail = (value: string): UserRole =>
+    ADMIN_EMAILS.includes(value.trim().toLowerCase()) ? "admin" : "member";
+
   const handleEmailLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    onLogin();
+    onLogin(roleFromEmail(email));
   };
 
   return (
@@ -118,11 +126,41 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               transition={{ duration: 0.4 }}
               className="space-y-3"
             >
+              {/* Acesso rápido de demonstração por papel */}
+              <div className="grid grid-cols-2 gap-2 mb-1">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => onLogin("admin")}
+                  className="flex flex-col items-center gap-1.5 py-3 px-3 rounded-xl bg-gradient-to-br from-[#7B61FF]/20 to-[#B14EFF]/20 border border-[#7B61FF]/30 text-white hover:from-[#7B61FF]/30 hover:to-[#B14EFF]/30 transition-all"
+                >
+                  <ShieldCheck className="w-5 h-5 text-[#B14EFF]" />
+                  <span className="text-xs font-medium">Entrar como Gerente</span>
+                  <span className="text-[10px] text-white/50">Acesso total + métricas</span>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => onLogin("member")}
+                  className="flex flex-col items-center gap-1.5 py-3 px-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all"
+                >
+                  <Users className="w-5 h-5 text-white/70" />
+                  <span className="text-xs font-medium">Entrar como Colaborador</span>
+                  <span className="text-[10px] text-white/50">Contas liberadas</span>
+                </motion.button>
+              </div>
+
+              <div className="flex items-center gap-4 py-1">
+                <div className="flex-1 h-px bg-white/10" />
+                <span className="text-white/40 text-xs">ou use sua conta</span>
+                <div className="flex-1 h-px bg-white/10" />
+              </div>
+
               {/* Google Login - Primary */}
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={onLogin}
+                onClick={() => onLogin("member")}
                 className="w-full flex items-center justify-center gap-3 py-3.5 px-6 bg-white text-gray-800 rounded-xl font-medium shadow-lg shadow-white/10 hover:shadow-white/20 transition-all"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24">
@@ -150,7 +188,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={onLogin}
+                onClick={() => onLogin("member")}
                 className="w-full flex items-center justify-center gap-3 py-3.5 px-6 bg-white/10 text-white rounded-xl font-medium border border-white/10 hover:bg-white/15 backdrop-blur-sm transition-all"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">

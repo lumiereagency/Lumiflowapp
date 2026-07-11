@@ -1,3 +1,4 @@
+import { SocialMediaScheduler } from "./SocialMediaScheduler";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import {
@@ -200,6 +201,7 @@ export function ProjectsDashboard({ onNavigate }: ProjectsDashboardProps) {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [activeTab, setActiveTab] = useState<"projects" | "scheduler">("projects");
 
   const filteredProjects = projects.filter((p) => {
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -242,7 +244,35 @@ export function ProjectsDashboard({ onNavigate }: ProjectsDashboardProps) {
         </motion.button>
       </div>
 
-      {/* Summary Stats */}
+      {/* Tabs */}
+      <div className="flex items-center gap-4 border-b border-border">
+        <button
+          onClick={() => setActiveTab("projects")}
+          className={`pb-4 text-sm font-medium transition-colors relative ${
+            activeTab === "projects" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          Lista de Projetos
+          {activeTab === "projects" && (
+            <motion.div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#7B61FF]" layoutId="projectsTabIndicator" />
+          )}
+        </button>
+        <button
+          onClick={() => setActiveTab("scheduler")}
+          className={`pb-4 text-sm font-medium transition-colors relative ${
+            activeTab === "scheduler" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          Agendador Social
+          {activeTab === "scheduler" && (
+            <motion.div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#7B61FF]" layoutId="projectsTabIndicator" />
+          )}
+        </button>
+      </div>
+
+      {activeTab === "projects" ? (
+        <>
+          {/* Summary Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
           { label: "Total de Projetos", value: summaryStats.total, icon: FolderKanban, color: "from-[#7B61FF] to-[#B14EFF]" },
@@ -559,6 +589,10 @@ export function ProjectsDashboard({ onNavigate }: ProjectsDashboardProps) {
           </>
         )}
       </AnimatePresence>
+        </>
+      ) : (
+        <SocialMediaScheduler />
+      )}
 
       {/* Create Project Modal */}
       <AnimatePresence>

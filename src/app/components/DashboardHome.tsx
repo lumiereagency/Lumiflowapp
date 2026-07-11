@@ -18,6 +18,7 @@ import {
   Target,
 } from "lucide-react";
 import { AIInsightsWidget } from "./AIInsightsWidget";
+import { SchedulerWidget } from "./SchedulerWidget";
 import {
   BarChart,
   Bar,
@@ -355,8 +356,11 @@ export function DashboardHome({ onNavigate, onOpenAI }: DashboardHomeProps) {
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <div>
+        {/* Scheduler Widget + Quick Actions */}
+        <div className="space-y-6">
+          <SchedulerWidget onNavigate={onNavigate} />
+
+          <div>
           <h3 className="font-semibold mb-4 flex items-center gap-2">
             <Zap className="w-4 h-4 text-[#7B61FF]" />
             Ações Rápidas
@@ -384,6 +388,7 @@ export function DashboardHome({ onNavigate, onOpenAI }: DashboardHomeProps) {
                 </motion.button>
               );
             })}
+          </div>
           </div>
         </div>
       </div>
